@@ -13,7 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using CulinaryBook.PageMain;
+using CulinaryBook.Pages;
 
 namespace CulinaryBook
 {
@@ -25,10 +25,10 @@ namespace CulinaryBook
         public MainWindow()
         {
             InitializeComponent();
-            AppConnect.model0db = new CulinaryBookEntities();
-            AppFrame.frameMain = FrmMain;
+            AppConnect.model01 = new CulinaryBookEntities();
+            AppFrame.frmMain = FrmMain;
 
-            FrmMain.Navigate(new PageLogin());
+            FrmMain.Navigate(new Authorization());
         }
     }
 }

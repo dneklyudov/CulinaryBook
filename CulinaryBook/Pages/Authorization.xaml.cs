@@ -14,26 +14,26 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace CulinaryBook.PageMain
+namespace CulinaryBook.Pages
 {
     /// <summary>
     /// Interaction logic for PageLogin.xaml
     /// </summary>
-    public partial class PageLogin : Page
+    public partial class Authorization: Page
     {
-        public PageLogin()
+        public Authorization()
         {
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void ButtonGo_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                var userObj = AppConnect.model0db.Authors.FirstOrDefault(x => x.Login == txbLogin.Text && x.Password == psbPassword.Password);
+                var userObj = AppConnect.model01.Authors.FirstOrDefault(x => x.Login == txbLogin.Text && x.Password == psbPassword.Password);
                 if (userObj == null) 
                 {
-                    MessageBox.Show("Такой пользователь не найден", "Ошибка при авторизации", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show("Такой пользователь не найден", "Ошибка авторизации", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
                 else
                 {
@@ -42,7 +42,7 @@ namespace CulinaryBook.PageMain
             }
             catch (Exception Ex)
             {
-                MessageBox.Show("Ошибка " + Ex.Message.ToString(), "Уведомление", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show("Ошибка " + Ex.Message.ToString(), "Критическая ошибка приложения", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
     }
