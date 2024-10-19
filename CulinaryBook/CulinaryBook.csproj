@@ -179,8 +179,8 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
-    <Resource Include="cook.jpg" />
-    <Resource Include="cook.png" />
+    <Resource Include="cook2.jpg" />
+    <Resource Include="cook1.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

@@ -5,14 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CulinaryBook"
         mc:Ignorable="d"
-        Title="Кулинарная книга" Height="450" Width="800" Icon="/cook.jpg">
+        Title="Кулинарная книга" Height="450" Width="800" Icon="/cook2.jpg" ResizeMode="NoResize">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="100"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center">
-            <Image Source="/cook.jpg" Margin="10"/>
+            <Image Source="/cook1.jpg" Margin="10"/>
             <TextBlock Style="{StaticResource Title}" Text="Кулинарная книга"/>
         </StackPanel>
         <Frame Grid.Row="1" Name="FrmMain" NavigationUIVisibility="Hidden"/>
