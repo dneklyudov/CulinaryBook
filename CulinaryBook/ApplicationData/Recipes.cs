@@ -29,8 +29,8 @@ namespace CulinaryBook.ApplicationData
         public string Description { get; set; }
         public int CategoryID { get; set; }
         public int AuthorID { get; set; }
-        public string CookingTime { get; set; }
-        public byte[] Image { get; set; }
+        public int CookingTime { get; set; }
+        public string Image { get; set; }
     
         public virtual Authors Authors { get; set; }
         public virtual Categories Categories { get; set; }

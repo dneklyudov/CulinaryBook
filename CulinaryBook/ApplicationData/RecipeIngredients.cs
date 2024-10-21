@@ -17,7 +17,7 @@ namespace CulinaryBook.ApplicationData
         public int RecipeIngredientID { get; set; }
         public int RecipeID { get; set; }
         public int IngredientID { get; set; }
-        public float Quantity { get; set; }
+        public int Quantity { get; set; }
     
         public virtual Ingredients Ingredients { get; set; }
         public virtual Recipes Recipes { get; set; }
