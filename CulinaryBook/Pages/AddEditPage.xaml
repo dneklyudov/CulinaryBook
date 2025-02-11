@@ -1,0 +1,38 @@
+﻿<Page x:Class="CulinaryBook.Pages.AddEditPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:CulinaryBook.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="650" d:DesignWidth="800"
+      Title="Добавление элемента">
+
+    <Grid>
+        <StackPanel Width="260" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,-60,0,0" >
+            <TextBlock HorizontalAlignment="Center" Margin="0,0,0,10" VerticalAlignment="Top" FontSize="24" TextAlignment="Center">
+                <Run Language="ru-ru" Text="Добавление рецепта"/>
+            </TextBlock>
+
+            <TextBlock TextWrapping="Wrap" Text="Название:" Width="160" Margin="0,0,0,5"/>
+            <TextBox x:Name="txbRecipeName" Text="{Binding RecipeName}" TextWrapping="Wrap" Width="160" Margin="0,0,0,5" />
+
+            <TextBlock TextWrapping="Wrap" Text="Описание:" Width="160" Margin="0,0,0,5"/>
+            <TextBox x:Name="txbDescription" Text="{Binding Description}" TextWrapping="Wrap" Width="160" Margin="0,0,0,5" />
+
+            <TextBlock TextWrapping="Wrap" Text="Категория:" Width="160" Margin="0,0,0,5"/>
+            <ComboBox x:Name="cbCategory" SelectedItem="{Binding Categories}" Width="160" Margin="0,0,0,5" DisplayMemberPath="CategoryName"/>
+
+            <TextBlock TextWrapping="Wrap" Text="Автор:" Width="160" Margin="0,0,0,5"/>
+            <ComboBox x:Name="cbAuthor" SelectedItem="{Binding Authors}" Width="160" Margin="0,0,0,5" DisplayMemberPath="AuthorName"/>
+
+            <TextBlock TextWrapping="Wrap" Text="Время приготовления:" Width="160" Margin="0,0,0,5"/>
+            <TextBox x:Name="txbCookingTime" Text="{Binding CookingTime}" TextWrapping="Wrap" Width="160" Margin="0,0,0,5" />
+
+            <TextBlock TextWrapping="Wrap" Text="Image:" Width="160" Margin="0,0,0,5"/>
+
+            <Button x:Name="btnSave" Content="Сохранить" Width="160" Margin="0,0,0,5" Click="BtnSave_Click"/>
+            <Button x:Name="btnCancel" Content="Отмена" Width="160" Margin="0,0,0,5" Click="BtnCancel_Click"/>
+        </StackPanel>
+    </Grid>
+</Page>

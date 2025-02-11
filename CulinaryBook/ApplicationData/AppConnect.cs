@@ -8,6 +8,6 @@ namespace CulinaryBook.ApplicationData
 {
     internal class AppConnect
     {
-        public static CulinaryBookEntities model01;
+        public static CulinaryBookEntities1 model01;
     }
 }

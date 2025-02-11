@@ -37,13 +37,20 @@ namespace CulinaryBook.Pages
                 }
                 else
                 {
-                    MessageBox.Show("Привет, " + userObj.AuthorName, "Успешная авторизация", MessageBoxButton.OK, MessageBoxImage.Information);
+                    // MessageBox.Show("Привет, " + userObj.AuthorName, "Успешная авторизация", MessageBoxButton.OK, MessageBoxImage.Information);
+                    NavigationService.Navigate(new Pages.PageRecipes());
+                    // NavigationService.Navigate(new Pages.AddEditPage());
                 }
             }
             catch (Exception Ex)
             {
                 MessageBox.Show("Ошибка " + Ex.Message.ToString(), "Критическая ошибка приложения", MessageBoxButton.OK, MessageBoxImage.Error);
             }
+        }
+
+        private void Register_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Pages.Reg());
         }
     }
 }

@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:CulinaryBook.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="650" d:DesignWidth="800"
       Title="Авторизация">
 
     <StackPanel Width="160" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,-60,0,0" >
@@ -15,7 +15,8 @@
         <TextBlock TextWrapping="Wrap" Text="Логин:" Width="160" Margin="0,0,0,5"/>
         <TextBox Name="txbLogin" TextWrapping="Wrap" Width="160" Margin="0,0,0,5" />
         <TextBlock TextWrapping="Wrap" Text="Пароль:" Margin="0,0,0,5"/>
-        <PasswordBox Name="psbPassword" Width="160" Margin="0,0,0,5" />
-        <Button x:Name="ButtonGo"  Click="ButtonGo_Click" Content="Войти" Width="100" Margin="0,0,0,5"/>
+        <PasswordBox Name="psbPassword" Width="160" Margin="0,0,0,10" />
+        <Button x:Name="ButtonGo" Click="ButtonGo_Click" Content="Войти" Width="160" Margin="0,0,0,5" IsDefault="True"/>
+        <Button x:Name="Register" Content="Зарегистрироваться" Width="160" Margin="0,0,0,5" Click="Register_Click"/>
     </StackPanel>
 </Page>
