@@ -16,6 +16,9 @@ using System.Windows.Shapes;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using Microsoft.Win32;
+using iText.Layout.Element;
+using System.IO;
+using System.Diagnostics;
 
 namespace CulinaryBook.Pages
 {
@@ -118,6 +121,13 @@ namespace CulinaryBook.Pages
                 var dialog = new OpenFileDialog();
                 dialog.Filter = "Image Files:|*.jpg;*.png|All Files|*.*";
                 dialog.Title = "Выберите изображение";
+
+                string path = Directory.GetCurrentDirectory();
+                string newPath = System.IO.Path.GetFullPath(System.IO.Path.Combine(path, @"..\..\Images"));
+
+                //Debug.WriteLine(Directory.GetCurrentDirectory() + @"\..\..\Images");
+                //dialog.InitialDirectory =  + @"\..\..\Images";
+                //Debug.WriteLine(Directory.GetCurrentDirectory());
 
                 if (dialog.ShowDialog() == true) { 
                     SelectedImage = System.IO.Path.GetFileName(dialog.FileName);
