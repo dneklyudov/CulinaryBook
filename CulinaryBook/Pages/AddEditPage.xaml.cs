@@ -15,6 +15,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
+using Microsoft.Win32;
 
 namespace CulinaryBook.Pages
 {
@@ -25,6 +26,7 @@ namespace CulinaryBook.Pages
     {
 
         private Recipes _recipe = new Recipes();
+        private string SelectedImage = "";
 
         public AddEditPage(Recipes selectedRecipe)
         {
@@ -79,7 +81,6 @@ namespace CulinaryBook.Pages
                 errors.AppendLine("Выберите автора");
             }
 
-
             if (String.IsNullOrEmpty(_recipe.CookingTime.ToString()) || String.IsNullOrWhiteSpace(_recipe.CookingTime.ToString()))
             {
                 errors.AppendLine("Заполните время приготовления");
@@ -91,7 +92,7 @@ namespace CulinaryBook.Pages
                 return;
             }
 
-            _recipe.Image = "";
+            _recipe.Image = SelectedImage;
 
             if (_recipe.RecipeID == 0)
             {
@@ -103,27 +104,36 @@ namespace CulinaryBook.Pages
                 AppConnect.model01.SaveChanges();
                 NavigationService.Navigate(new Pages.PageRecipes());
                 // MessageBox.Show("Рецепт успешно добавлен", "Информация сохранена", MessageBoxButton.OK, MessageBoxImage.Information);
-
-
-                // В примере сказано: 
-
-                // 7.Теперь можно вернуться назад.При возврате на страницу со списком отелей, нам необходимо
-                // выводить актуальную информацию, обновляя список в таблице. Для этого мы будем использовать
-                // событие у страницы IsVisibleChange.Оно срабатывает каждый раз, когда страница отображается,
-                // либо скрывается
-
-                // С помощью F12 переходим в код.Если видимость страницы isVisible, мы будем обращаться
-                // к контексту с помощью свойства ChangeTracker ко всем сущностям, которые есть. И для каждой
-                // из них будем выполнять метод перезагрузки и вывода актуальных данных.После этого таблицу
-                // DGridHotels присвоим таблице «список отелей»
-
-                // Зачем это все? И так работает за счет реактивности.
-
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message.ToString(), "При сохранении произошла ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
             }
+        }
+
+        private void btnLoadPicture_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                var dialog = new OpenFileDialog();
+                dialog.Filter = "Image Files:|*.jpg;*.png|All Files|*.*";
+                dialog.Title = "Выберите изображение";
+
+                if (dialog.ShowDialog() == true) { 
+                    SelectedImage = System.IO.Path.GetFileName(dialog.FileName);
+                    txbImage.Text = SelectedImage;
+                    // MessageBox.Show("Изображение успешно загружено.", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Изображение не выбрано.", "Предупреждение", MessageBoxButton.OK, MessageBoxImage.Warning);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ошибка при загрузке изображения: " + ex.Message, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+
         }
     }
 }

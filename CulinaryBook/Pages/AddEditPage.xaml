@@ -30,6 +30,8 @@
             <TextBox x:Name="txbCookingTime" Text="{Binding CookingTime}" TextWrapping="Wrap" Width="160" Margin="0,0,0,5" />
 
             <TextBlock TextWrapping="Wrap" Text="Image:" Width="160" Margin="0,0,0,5"/>
+            <TextBox x:Name="txbImage" Text="{Binding Image}" TextWrapping="Wrap" Width="160" Margin="0,0,0,5" />
+            <Button x:Name="btnLoadPicture" Content="Загрузить новую картинку" Width="160" Margin="0,0,0,20" Click="btnLoadPicture_Click"/>
 
             <Button x:Name="btnSave" Content="Сохранить" Width="160" Margin="0,0,0,5" Click="BtnSave_Click"/>
             <Button x:Name="btnCancel" Content="Отмена" Width="160" Margin="0,0,0,5" Click="BtnCancel_Click"/>
